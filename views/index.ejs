@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Products</title>
+  </head>
+
+  <body>
+    <%- include('head') %>
+    <div class="container">
+      <% data.forEach((e) => { %>
+      <div class="card">
+        <img src="<%= e.image %>" alt="<%= e.title %>" />
+
+        <div class="card-body">
+          <h3><%= e.title %></h3>
+
+          <p class="price">$<%= e.price %></p>
+
+          <p class="category"><%= e.category %></p>
+
+          <p class="desc"><%= e.description %></p>
+
+          <div class="rating">
+            ⭐ <%= e.rating.rate %>
+            <span>(<%= e.rating.count %>)</span>
+          </div>
+          <button data-action="add" class="btn" id="<%= e.id %>">
+            Add to cart
+          </button>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <script src="/javascripts/index.js"></script>
+  </body>
+</html>
